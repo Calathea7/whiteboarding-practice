@@ -40,3 +40,19 @@ class Solution:
             curr = next
 
         return prev
+
+def contains_cycle(first_node):
+
+    # Check if the linked list contains a cycle
+
+    slow = first_node
+    fast = first_node
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+        if fast is slow:
+            return True
+
+    return False
