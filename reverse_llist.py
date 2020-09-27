@@ -1,18 +1,42 @@
+
+# class Solution:
+#     def reverseList(self, head: ListNode) -> ListNode:
+
+#         current = head
+#         prev_node = None
+
+#         while current:
+#             current.next = prev_node
+#             prev_node = current
+#             current = current.next
+
+#         head = prev_node
+#         return head
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+# [1,2,3,4,5]
+# head is 1
+# curr = 1->2->3->4->5
+# next = 2->3->4->5
+# 1->None
+# curr = 2->3->4->5
+
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
 
-        current = head
-        prev_node = None
+        curr = head
+        prev = None
+        next = None
 
-        while current:
-            current.next = prev_node
-            prev_node = current
-            current = current.next
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
 
-        head = prev_node
-        return prev_node
+        return prev
